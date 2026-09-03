@@ -14,7 +14,9 @@ Responsive static demonstration website for Guardrisk, based on the supplied com
 - Phone, email and WhatsApp actions
 
 ## GitHub Pages
-This repository includes a GitHub Pages deployment workflow. Pushes to `main` deploy the static demo.
+The demo is intentionally kept as a simple static site in `index.html` so it can be hosted directly from the `main` branch without a build pipeline.
+
+In GitHub: **Settings → Pages → Build and deployment → Deploy from a branch → `main` → `/ (root)` → Save**.
 
 Expected site URL: `https://lelefe-dc.github.io/gRisk/`
 
