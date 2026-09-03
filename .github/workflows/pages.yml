@@ -24,19 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Rebuild static demo
-        shell: bash
+      - name: Prepare static site
         run: |
           mkdir -p _site
-          python3 - <<'PY'
-          import base64, gzip
-          from pathlib import Path
-          payload = Path('site.html.gz.b64').read_text().strip()
-          html = gzip.decompress(base64.b64decode(payload))
-          Path('_site/index.html').write_bytes(html)
-          Path('_site/.nojekyll').touch()
-          print(f'Built Guardrisk demo: {len(html)} bytes')
-          PY
+          cp index.html _site/index.html
+          touch _site/.nojekyll
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
